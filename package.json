@@ -1,0 +1,31 @@
+{
+  "name": "prime-cosmos",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "GPU-driven prime number visualizer: morph primes across geometric topologies, zoom 1 → 10^7.",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "three": "^0.187.0",
+    "tweakpane": "^4.0.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@tweakpane/core": "^2.0.5",
+    "@types/three": "^0.187.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}

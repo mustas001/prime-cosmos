@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="description" content="Prime numbers as a GPU-driven constellation: morph between Ulam, Sacks, phyllotaxis and more, from 1 to 10 million." />
+    <title>Prime Cosmos</title>
+  </head>
+  <body class="bg-[#03040a] text-zinc-200 antialiased">
+    <!-- WebGL canvas + camera input -->
+    <div id="app" class="fixed inset-0"></div>
+    <!-- HUD overlay (pointer-events pass through to #app except on its own cards) -->
+    <div id="hud" class="fixed inset-0 pointer-events-none"></div>
+    <!-- Tweakpane -->
+    <div id="panel" class="fixed right-3 top-3 z-10 max-h-[calc(100vh-1.5rem)] w-[17.5rem] overflow-y-auto overflow-x-hidden rounded-xl sm:right-5 sm:top-5"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

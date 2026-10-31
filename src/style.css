@@ -1,0 +1,96 @@
+@import 'tailwindcss';
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  font-family: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+}
+
+/* The HUD is click-through; only its interactive cards opt back in. */
+#hud > div {
+  pointer-events: none;
+}
+
+/* Short windows: the inspector takes priority over the stats card. */
+@media (max-height: 779px) {
+  #hud-stats-card {
+    display: none !important;
+  }
+}
+
+/* ---- Tweakpane, restyled as frosted glass ------------------------------------
+   The panel itself is translucent, but every control surface is opaque: Tweakpane's
+   dropdown is a native <select>, whose popup inherits its colours, and a see-through
+   background there renders as pale-on-pale text. */
+#panel {
+  color-scheme: dark;
+
+  --tp-base-background-color: rgba(10, 10, 14, 0.72);
+  --tp-base-shadow-color: rgba(0, 0, 0, 0.55);
+  --tp-container-background-color: rgba(255, 255, 255, 0.04);
+  --tp-container-background-color-hover: rgba(255, 255, 255, 0.07);
+  --tp-container-background-color-focus: rgba(255, 255, 255, 0.09);
+  --tp-container-background-color-active: rgba(255, 255, 255, 0.11);
+  --tp-container-foreground-color: #f4f4f5;
+
+  --tp-button-background-color: #2c2c36;
+  --tp-button-background-color-hover: #393945;
+  --tp-button-background-color-focus: #41414f;
+  --tp-button-background-color-active: #b91c1c;
+  --tp-button-foreground-color: #fafafa;
+
+  --tp-input-background-color: #1b1b22;
+  --tp-input-background-color-hover: #24242d;
+  --tp-input-background-color-focus: #2b2b36;
+  --tp-input-background-color-active: #7f1d1d;
+  --tp-input-foreground-color: #fafafa;
+
+  --tp-groove-foreground-color: rgba(255, 255, 255, 0.28);
+  --tp-label-foreground-color: #d4d4d8;
+  --tp-monitor-background-color: #14141a;
+  --tp-monitor-foreground-color: #d4d4d8;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+
+#panel .tp-dfwv {
+  width: 100%;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: inherit;
+}
+
+#panel .tp-rotv {
+  font-size: 11px;
+  font-family: inherit;
+}
+
+/* Dropdowns: a clearly lit control, and an opaque list with a distinct selected row. */
+#panel .tp-lstv_s {
+  background-color: #2c2c36;
+  color: #fafafa;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+#panel .tp-lstv_s:hover {
+  background-color: #393945;
+}
+
+#panel select option,
+#panel select optgroup {
+  background-color: #17171d;
+  color: #fafafa;
+  font-weight: 500;
+}
+
+#panel select option:checked {
+  background-color: #b91c1c;
+  color: #fff;
+  box-shadow: 0 0 10px 100px #b91c1c inset; /* Firefox/Chromium paint the highlight via inset shadow */
+}
