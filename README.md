@@ -16,6 +16,14 @@ npm run build      # typecheck + production bundle in dist/
 npm run preview    # serve dist/
 ```
 
+### Deploying to GitHub Pages
+
+`.github/workflows/deploy.yml` runs the tests, builds with Vite and publishes `dist/` on every push
+to `main`. One-time setup: in the repository go to **Settings → Pages → Build and deployment →
+Source** and choose **GitHub Actions**. (Pages cannot serve the TypeScript sources directly, so
+publishing the repository root will 404.) `vite.config.ts` uses a relative `base`, so the build
+works under `/<repo>/` as well as at a domain root.
+
 URL parameters: `?count=200000` starts with fewer integers (useful on slow GPUs);
 `?intro=0` skips the opening fly-out from "1 … 100" to the whole range.
 
